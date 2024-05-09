@@ -9,7 +9,6 @@ export const GET: APIRoute = async ({ params }) => {
   }
 
   const response = await getLinkBySlug(slug)
-  console.log("🚀 ~ constGET:APIRoute= ~ response:", response, slug)
 
   if (!response.success) {
     return new Response(null, { status: 500 })
