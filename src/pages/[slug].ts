@@ -2,7 +2,6 @@ import { getLinkBySlug } from '@/Shared/db'
 import type { APIRoute } from 'astro'
 
 export const GET: APIRoute = async ({ params }) => {
-  console.log("🚀 ~ constGET:APIRoute= ~ params:", params)
   const { slug } = params
 
   if (!slug) {
@@ -10,7 +9,7 @@ export const GET: APIRoute = async ({ params }) => {
   }
 
   const response = await getLinkBySlug(slug)
-  console.log("🚀 ~ constGET:APIRoute= ~ response:", response)
+  console.log("🚀 ~ constGET:APIRoute= ~ response:", response, slug)
 
   if (!response.success) {
     return new Response(null, { status: 500 })
