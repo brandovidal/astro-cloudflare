@@ -1,25 +1,12 @@
 ---
+import { Button } from "@/components/ui/button";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-
-import { getAllLinks } from "@/services/links";
-
-const links = await getAllLinks();
 ---
 
 <Layout title="Astro Cloudflare 🔥">
-  <main>
-    <h1>Links:</h1>
-
-		<ul role="list" class="link-card-grid">
-			{
-				links.map((link) => (
-					<Card
-						href={link.slug}
-						title={link.slug}
-					/>
-				))
-			}
+  <main class="flex flex-col items-center justify-center bg-background text-foreground gap-4">
+    <h1>Astro Cloudflare 🔥</h1>
+    <Button>Save</Button>
   </main>
 
   <style>
@@ -28,16 +15,9 @@ const links = await getAllLinks();
       padding: 1rem;
       width: 800px;
       max-width: calc(100% - 2rem);
-      color: white;
       font-size: 20px;
       line-height: 1.6;
-    }
-
-    .link-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-      gap: 2rem;
-      padding: 0;
+      text-align: center;
     }
   </style>
 </Layout>
